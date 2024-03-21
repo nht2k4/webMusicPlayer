@@ -20,8 +20,8 @@ loadSong(songs[songIndex]);
 // Cập nhật thông tin bài hát
 function loadSong(song) {
     title.innerText = song;
-    audio.src = `music/${song}.mp3`;
-    cover.src = `images/${song}.jpg`;
+    audio.src = `${song}.mp3`;
+    cover.src = `${song}.jpg`;
 }
 
 // Play song
@@ -105,12 +105,12 @@ function findSong(query) {
     const matchedSong = songs.find(song => song.toLowerCase() === query.toLowerCase());
 
     if (matchedSong) {
-        return { name: matchedSong, mp3: `music/${matchedSong}.mp3` };
+        return { name: matchedSong, mp3: `${matchedSong}.mp3` };
     }
 
     const partialMatch = songs.find(song => song.toLowerCase().includes(query.toLowerCase()));
 
-    return partialMatch ? { name: partialMatch, mp3: `music/${partialMatch}.mp3` } : null;
+    return partialMatch ? { name: partialMatch, mp3: `${partialMatch}.mp3` } : null;
 }
 
 // Sự kiện submit của form
@@ -214,7 +214,7 @@ audio.addEventListener("ended", nextSong);
 
 // Hiển thị thông tin bài hát khi tìm kiếm
 function showSongInfo(song) {
-    songInfoImage.src = `images/${song}.jpg`;
+    songInfoImage.src = `${song}.jpg`;
     songTitleElement.textContent = "Tên bài hát: " + song;
     songArtistElement.innerHTML = "Ca sĩ: " + getArtistInfo(song);
     songInfoContainer.style.display = "block";
