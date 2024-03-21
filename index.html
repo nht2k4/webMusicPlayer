@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <title>Nhạc tẩm đá</title>
+    </head>
+    <body>
+        <h1>Nhạc tẩm đá</h1>
+
+        
+        
+        <!-- Biểu mẫu tìm kiếm -->
+        <form id="musicSearchForm">
+            <label for="searchQuery">Tìm Kiếm</label>
+            <input type="text" id="searchQuery" name="searchQuery" placeholder="Cưng muốn nghe gì ?:V">
+            <button type="submit">Ok</button>
+        </form>
+    
+        <!-- Kết quả tìm kiếm sẽ hiển thị ở đây -->
+        <div id="searchResults"></div>
+    
+
+        <!-- Thẻ video làm background -->
+    <video id="video" autoplay muted loop>
+        <source src="videos/bgr3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+     
+    <!--Hiện lời bài hát -->
+    <div class="lyrics-container" id="lyrics-container">
+        <div id="lyrics" class="lyrics-scrollable"></div>
+    </div>
+    
+    <div id="lyrics-container">
+        <div id="lyrics"></div>
+    </div>
+    
+    
+        <!-- Thẻ audio với thuộc tính autoplay -->
+        <audio src="music/day_bien.mp3" id="audio"></audio>
+    
+      
+
+   
+    
+
+
+        
+
+        <div class="music-container" id="music-container">
+            <div class="music-info">
+                <h4 id="title"></h4>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+
+            <audio src="music/mac_van_quy_ky.mp3" id="audio"></audio>
+
+            <div class="img-container">
+                <img src="images/mac_van_quy_ky.jpg" alt="music-cover" id="cover" />
+            </div>
+            <div class="navigation">
+                <button id="prev" class="action-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button id="play" class="action-btn action-btn-big">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next" class="action-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Thẻ audio với thuộc tính autoplay -->
+        <audio src="music/day_bien.mp3" id="audio"></audio>
+       
+
+        <!--Hiển thị tên bài hát-->
+        <!-- Bổ sung nơi hiển thị thông tin bài hát -->
+<div id="songInfoContainer" style="display: none;">
+    <img id="songInfoImage" src="" alt="Song Image" />
+    <div id="songInfo">
+        <h3 id="songTitle"></h3>
+        <p id="songArtist"></p>
+    </div>
+</div>
+
+       
+
+        <script src="main.js"></script>
+    </body>
+</html>

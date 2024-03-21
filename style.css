@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css?family=Anton&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+/* Thêm các quy tắc CSS cho tiêu đề */
+h1{
+    font-family: "Anton", sans-serif; /* Chọn font chữ */
+    font-size: 80px; /* Thiết lập kích thước font */
+    color: #c083b2; /* Màu chữ */
+}
+
+/*kieu cho loi bài hát và định dạng cuộn */
+
+.lyrics-scrollable {
+    max-height: 300px; /* Điều chỉnh chiều cao tối đa của khu vực lời bài hát */
+    overflow-y: auto;
+}
+
+
+/*Lời bài hát nằm ở mép dưới màn hình và ở trung tâm ( có hiệu ứng cuộn)*/
+#lyrics-container {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#lyrics {
+    animation: scroll-up 5s linear infinite;
+}
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+
+/* Thêm quy tắc CSS cho tiêu đề h2 trong biểu mẫu tìm kiếm */
+#musicSearchForm h2 {
+    font-family: "Lato", sans-serif; /* Chọn font chữ */
+    font-size: 20px; /* Thiết lập kích thước font */
+    color: aquamarine;
+    position: fixed;
+    top: 10px; /* Điều chỉnh khoảng cách từ trên xuống */
+    right: 10px; /* Điều chỉnh khoảng cách từ phải sang trái */
+    z-index: 999; /* Đảm bảo form nằm trên các phần tử khác */
+    transform: translate(0, 0); /* Đặt vị trí tuyệt đối */
+}
+
+/* Thêm quy tắc CSS cho kết quả tìm kiếm */
+#searchResults p {
+    font-size: 18px; /* Thiết lập kích thước font */
+    color: #1ee7fa; /* Màu chữ */
+}
+
+
+/* Thiết lập giao diện của biểu mẫu tìm kiếm */
+#musicSearchForm {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 999;
+    transform: translate(0, 0);
+    background-color: #f8f8f8; /* Màu nền */
+    padding: 15px; /* Khoảng cách giữa nội dung và đường viền */
+    border-radius: 10px; /* Bo tròn góc */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+}
+
+/* Thiết lập giao diện của input trong biểu mẫu tìm kiếm */
+#musicSearchForm input {
+    font-size: 16px;
+    padding: 10px; /* Kích thước lề bên trong input */
+    border: 1px solid #ddd; /* Đường viền */
+    border-radius: 5px; /* Bo tròn góc */
+    width: 200px; /* Chiều rộng của input */
+    transition: border-color 0.3s ease-in-out; /* Hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng khi di chuột vào input */
+#musicSearchForm input:hover {
+    border-color: #555; /* Màu đường viền khi di chuột vào */
+}
+
+/* Thiết lập giao diện của nút trong biểu mẫu tìm kiếm */
+#musicSearchForm button {
+    font-size: 16px;
+    padding: 10px 15px; /* Kích thước lề bên trong nút */
+    background-color: #dc79b6; /* Màu nền của nút */
+    color: #fff; /* Màu chữ của nút */
+    border: none; /* Loại bỏ đường viền */
+    border-radius: 5px; /* Bo tròn góc */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out; /* Hiệu ứng chuyển động */
+}
+
+/* Hiệu ứng khi di chuột vào nút */
+#musicSearchForm button:hover {
+    background-color: #333; /* Màu nền của nút khi di chuột vào */
+}
+
+/* CSS cho phần video background */
+body {
+    margin: 0;
+    overflow: hidden; /* Loại bỏ thanh cuộn */
+}
+
+#video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1; /* Đặt thấp hơn để đảm bảo các phần tử khác trên trang hiển thị lên trước */
+}
+
+/* Các phần CSS khác */
+/* ... */
+
+
+.music-container {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 rgba(39, 75, 122, 0.6);
+    display: flex;
+    padding: 20px 30px;
+    position: relative;
+    margin: 100px 0;
+    z-index: 10;
+}
+
+.img-container {
+    position: relative;
+    width: 110px;
+}
+
+.img-container::after {
+    content: "";
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, 50%);
+}
+
+.img-container img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 110px;
+    width: inherit;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+
+    animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.action-btn {
+    background-color: #fff;
+    border: 0;
+    color: #dfdbdf;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+.action-btn.action-btn-big {
+    color: #cdc2d0;
+    font-size: 30px;
+}
+
+.action-btn:focus {
+    outline: 0;
+}
+
+.music-info {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: calc(100% - 40px);
+    padding: 10px 10px 10px 150px;
+    opacity: 0;
+    transform: translateY(0%);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+    z-index: 0;
+}
+
+.music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.music-info h4 {
+    margin: 0;
+}
+
+.progress-container {
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+.progress {
+    background-color: #c78dfe;
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* Hiển thị thông tin bài hát */
+#songInfoContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#songInfoImage {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+#songTitle {
+    font-size: 18px;
+    color: #333;
+}
+
+#songArtist {
+    font-size: 14px;
+    color: #666;
+}
+
